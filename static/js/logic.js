@@ -60,7 +60,7 @@ var faultline = new L.LayerGroup();
 
 d3.json(faultLinesURL, function (lines) {
     L.geoJSON(lines.features, {
-        style: function (geoJsonFeature) {
+        style: function () {
             return {
                 weight: 2,
                 color: '#f8d409'
@@ -84,7 +84,7 @@ function makeMap() {
         maxZoom: 18,
         id: "mapbox.satellite",
         accessToken: API_KEY
-      });
+    });
     var grayscale = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
         attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
         maxZoom: 18,
@@ -96,7 +96,7 @@ function makeMap() {
         maxZoom: 18,
         id: "mapbox.outdoors",
         accessToken: API_KEY
-      });
+    });
     // assinging basemaps to variable for overlay legend 
     var baseMaps = {
         "Dark Map": darkmap,
@@ -108,7 +108,7 @@ function makeMap() {
     var overlayMaps = {
         "Fault Lines": faultline,
         "Earthquakes": earthquake
-      };
+    };
 
     // creating map
     var myMap = L.map("map", {
@@ -142,17 +142,17 @@ function makeMap() {
         limit: "Mag: 1-2",
         color: "greenyellow"
     },{
-        limit:"Mag: 2-3",
-        color:"gold"
+        limit: "Mag: 2-3",
+        color: "gold"
     },{
-        limit:"Mag: 3-4",
-        color:"DarkOrange"
+        limit: "Mag: 3-4",
+        color: "DarkOrange"
     },{
-        limit:"Mag: 4-5",
+        limit: "Mag: 4-5",
         color:"Peru"
     },{
-        limit:"Mag: 5+",
-        color:"red"
+        limit: "Mag: 5+",
+        color: "red"
     }];
     
         var header = "<h3>Magnitude</h3><hr>";
